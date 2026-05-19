@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Redis Visual Demo</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <header class="hero">
+        <div>
+            <p class="badge">Redis learning project</p>
+            <h1>Redis простыми словами</h1>
+            <p>
+                Эта страница показывает, как Redis быстро сохраняет данные,
+                отдаёт их обратно, удаляет по времени и хранит состояние курьера.
+            </p>
+        </div>
+
+        <div class="redis-box">
+            <div class="redis-icon">R</div>
+            <div>
+                <strong>Redis</strong>
+                <span>быстрое хранилище в памяти</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid">
+
+        <section class="card">
+            <h2>1. Простое хранение</h2>
+            <p>Redis может сохранить обычное значение по ключу.</p>
+
+            <input id="usernameInput" placeholder="Например: Shaxriyor">
+
+            <div class="buttons">
+                <button onclick="saveUsername()">Сохранить</button>
+                <button onclick="getUsername()">Получить</button>
+                <button class="danger" onclick="deleteUsername()">Удалить</button>
+            </div>
+
+            <pre id="usernameResult">Результат появится здесь...</pre>
+        </section>
+
+        <section class="card">
+            <h2>2. TTL — временный код</h2>
+            <p>Redis может сам удалить данные через несколько секунд.</p>
+
+            <input id="codeInput" placeholder="Например: 123456">
+            <input id="ttlInput" type="number" value="10">
+
+            <div class="buttons">
+                <button onclick="saveCode()">Сохранить код</button>
+                <button onclick="getCode()">Проверить код</button>
+            </div>
+
+            <pre id="codeResult">Код живёт только указанное время...</pre>
+        </section>
+
+        <section class="card">
+            <h2>3. Counter</h2>
+            <p>Redis удобно использовать для счётчиков.</p>
+
+            <div class="counter" id="counterValue">0</div>
+
+            <div class="buttons">
+                <button onclick="incrementCounter()">+1</button>
+                <button class="danger" onclick="resetCounter()">Сбросить</button>
+            </div>
+
+            <pre id="counterResult">Нажми +1...</pre>
+        </section>
+
+        <section class="card">
+            <h2>4. Courier status</h2>
+            <p>Пример из Deliver App: статус курьера можно быстро хранить в Redis.</p>
+
+            <select id="courierStatus">
+                <option value="ONLINE">ONLINE</option>
+                <option value="BUSY">BUSY</option>
+                <option value="ON_DELIVERY">ON_DELIVERY</option>
+                <option value="OFFLINE">OFFLINE</option>
+            </select>
+
+            <div class="buttons">
+                <button onclick="updateCourier()">Обновить статус</button>
+                <button onclick="getCourier()">Показать курьера</button>
+            </div>
+
+            <pre id="courierResult">Данные курьера появятся здесь...</pre>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
